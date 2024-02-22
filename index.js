@@ -13,7 +13,7 @@ function generateRandomPassword(length) {
   // Визначаємо випадковий індекс символу зі списку characters та округляємо до найбільшого цілого, яке менше.
   // Отримуємо символ з випадковим індексом.
   // Додаємо отриманий випадковий символ до паролю.
-  let password = " ";
+  let password = "";
   let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * characters.length);
@@ -44,8 +44,9 @@ function calculateCircleArea(radius) {
     console.log("arror");
     return null;
   }
-  let x = Math.PI * radius ^ 2;
-  return x;
+  let x = Math.PI * radius;
+  let y = Math.pow(x, 2)
+  return y;
 }
 
 console.log("Завдання 2 ==============================");
@@ -66,7 +67,7 @@ function findMinMax(numbers) {
   // Записуємо мінімальне значення масиву в змінну mix
   // Записуємо максимальне значення масиву в змінну max
   // Повертаємо об'єкт {min,max}, що містить знайдені мінімальне та максимальне число.
-  if (!isArray(numbers)) {
+  if (!Array.isArray(numbers)) {
     console.log("arror");
     return null;
   }
@@ -93,7 +94,7 @@ function calculateHypotenuse(a, b) {
   // Повертаємо null, що свідчить про неможливість обробки вхідних даних.
   // Обчислюємо довжину гіпотенузи за теоремою Піфагора. c=√(a² + b²)
   // Повертаємо обчислену довжину гіпотенузи.
-  if (!isArray(a, b)) {
+  if (!Array.isArray(a, b)) {
     console.log("arror");
     return null;
   }
@@ -170,7 +171,8 @@ function calculateVolumeCylinder(radius, height) {
     console.log("arror");
     return null;
   }
-  let x = Math.PI * radius ** 2 * height;
+  let i = Math.pow(radius, 2)
+  let x = Math.PI * i * height;
   let result = Math.ceil(x);
   return result;
 }
@@ -194,13 +196,13 @@ function sumPositiveNumbers(numbers) {
   // Перевіряємо, чи є поточне число додатним, використовуючи Math.sign.
   // Якщо число додатнє, додаємо його до суми.
   // Повертаємо суму додатніх чисел.
-  if (!isArray(numbers)) {
+  if (!Array.isArray(numbers)) {
     console.log("Помилка: аргумент має бути масивом чисел.");
     return null;
   }
   let x;
   for (i = 0; i <= numbers.length; i++) {
-    if (Math.sign(numbers[i]) === 1) {
+    if (Math.sign(numbers[i])) {
       positiveSum += numbers[i];
   }
   }
